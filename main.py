@@ -87,16 +87,12 @@ class Face_Recognition_System:
             faceImg = Image.open(imagePath).convert('L') # Gray scale image
             faceNp = np.array(faceImg, 'uint8')
             
-            # id = int(os.path.split(imagePath)[1].split('.'[1]))
             id = int(imagePath.split('\\')[1].split('.')[1])
-            print(id)
             faces.append(faceNp)
             ids.append(id)
             
             cv2.imshow("Training Image", faceNp)
             cv2.waitKey(1) == 13
-        # ids = np.array(ids)
-        print(ids)
         
         recognizer = cv2.face.LBPHFaceRecognizer_create()
         recognizer.train(faces, np.array(ids))
@@ -138,21 +134,18 @@ class Face_Recognition_System:
                 my_cursor = conn.cursor()
                 
                 id_new = 'B' + str(id)
-                # print(id_new)
                 
                 sql = "SELECT name FROM student WHERE studentId=%s"
                 val = (id_new,)
                 my_cursor.execute(sql, val)
                 name = my_cursor.fetchone()
                 name = "+".join(name)
-                # print(name)
                 
                 sql = "SELECT studentId FROM student WHERE studentId=%s"
                 val = (id_new,)
                 my_cursor.execute(sql, val)
                 mssv = my_cursor.fetchone()
                 mssv = "+".join(mssv)
-                # print(mssv)
                 
                 sql = "SELECT department FROM student WHERE studentId=%s"
                 val = (id_new,)

@@ -168,7 +168,7 @@ class Attendance:
                 messagebox.showerror("Dữ liệu rỗng", "Không có dữ liệu để xuất!", parent=self.root)
                 return False
             fln = filedialog.asksaveasfilename(initialdir=os.getcwd(), title="Open CSV", filetypes=(("CSV File", "*csv"),("ALL File", "*.*")), parent=self.root)
-            with open(fln, mode="w",newline="") as myfile:
+            with open(fln, mode="w",newline="", encoding='utf-16') as myfile:
                 exp_write = csv.writer(myfile, delimiter=",")
                 for i in mydata:
                     exp_write.writerow(i)

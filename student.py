@@ -401,12 +401,8 @@ class Student:
                 sql = "SELECT * FROM student"
                 my_cursor.execute(sql)
                 my_results = my_cursor.fetchall()
-                
-                # count_id = 0
-                # for i in my_results:
-                #     count_id += 1
+
                 student_id = self.var_studentID.get()
-                print(self.var_studentID.get())
                     
                 sql = "UPDATE student SET course=%s, year=%s, sesmester=%s, name=%s, department=%s, classId=%s, email=%s, DoB=%s, gender=%s, imagePath=%s where studentId=%s"
                 val = (
