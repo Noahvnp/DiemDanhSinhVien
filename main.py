@@ -61,7 +61,7 @@ class Face_Recognition_System:
 					  activebackground = "blue", font =('times new roman', 18, ' bold '))
         photo_btn.place(x = 600, y = 500, width = 300, height = 70)
         
-        exit_btn = Button(self.root, cursor="hand2", text ="Thoát", fg ="white", bg ="teal",
+        exit_btn = Button(self.root, cursor="hand2", text ="Thoát", command=root.destroy, fg ="white", bg ="teal",
 					  activebackground = "blue", font =('times new roman', 18, ' bold '))
         exit_btn.place(x = 1070, y = 500, width = 300, height = 70)
            
@@ -183,7 +183,7 @@ class Face_Recognition_System:
                 break
         cam.release()
         cv2.destroyAllWindows()
-
+            
 if __name__ == "__main__":
     root = Tk()
     main = Face_Recognition_System(root)
