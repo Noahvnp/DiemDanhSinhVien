@@ -115,7 +115,7 @@ class Face_Recognition_System:
                 day = now.strftime("%d-%m-%Y")
                 hour = now.strftime("%H:%M:%S")
                 print(day, hour)
-                csvFile.writelines(f"\n{studentId},{name},{department},{day},{hour},Preset")
+                csvFile.writelines(f"\n{studentId},{name},{department},{day},{hour},Hiện diện")
     
     def face_recog(self):
         def draw_boundray(img, classifier, scaleFactor, minNeighbors, color, text, clf):
